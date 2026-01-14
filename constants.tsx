@@ -57,7 +57,6 @@ export const PROJECTS: Project[] = [
       "问答优化: 优化检索策略与 Prompt 工程，使回答事实一致性得分超 95%，有效抑制模型幻觉。",
       "系统落地: 搭建完备系统原型，检索Top-3命中率达 92%，平均响应<2s，显著提升特定领域信息提取可靠性。"
     ],
-    // Updated to array: Add your second image name here
     imageUrls: ["/images/project1.png", "/images/project1_demo.png"]
   },
   {
@@ -71,7 +70,8 @@ export const PROJECTS: Project[] = [
       "算法改进: 改进方向引导生成方式并引入迭代校正机制，显著减少分割结果中的噪声残留与表达偏差。",
       "效果提升: 解决轮廓不平滑问题，在标准数据集上mAP提升 9.0%，边界 IoU 提升 5.2%，大幅增强了分割鲁棒性。"
     ],
-    imageUrls: ["/images/project2.png"]
+    // Added project2_demo.png
+    imageUrls: ["/images/project2.png", "/images/project2_demo.png"]
   }
 ];
 
@@ -100,8 +100,8 @@ export const PUBLICATIONS: Publication[] = [
     citation: "J. Xu, C. Wang and F. Wu, \"URDGNet: Directional Fields-Guided Building Instance Segmentation Network With Unpooling Content Reconstruction,\" in IEEE Transactions on Automation Science and Engineering, vol. 22, pp. 23513-23526, 2025.",
     tag: "SCI 2区 / IF 6.4 / 第一作者",
     url: "https://doi.org/10.1109/TASE.2025.3627845",
-    // Add your paper architecture image to /public/images/pub1_arch.png
-    image: "/images/pub1_arch.png"
+    // Changed to imageUrls array
+    imageUrls: ["/images/pub1_arch.png"]
   }
 ];
 

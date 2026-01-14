@@ -4,22 +4,23 @@ import { Hero } from './components/Hero';
 import { Section } from './components/Section';
 import { ExperienceItem } from './components/ExperienceItem';
 import { ProjectCard } from './components/ProjectCard';
-import { 
-  EXPERIENCE, 
-  PROJECTS, 
-  EDUCATION, 
-  PUBLICATIONS, 
-  SKILLS 
+import { ImageCarousel } from './components/ImageCarousel';
+import {
+  EXPERIENCE,
+  PROJECTS,
+  EDUCATION,
+  PUBLICATIONS,
+  SKILLS
 } from './constants';
 
 function App() {
   return (
     <div className="min-h-screen bg-[#fbfbfd]">
       <Navbar />
-      
+
       <main>
         <Hero />
-        
+
         {/* Education moved before Experience */}
         <Section title="Education" id="education">
           <div className="grid md:grid-cols-2 gap-6">
@@ -37,7 +38,7 @@ function App() {
             ))}
           </div>
         </Section>
-        
+
         <Section title="Experience" id="experience">
           <div className="pl-2">
             {EXPERIENCE.map((exp) => (
@@ -45,7 +46,7 @@ function App() {
             ))}
           </div>
         </Section>
-        
+
         <Section title="Projects" id="projects">
           <div className="grid gap-8">
             {PROJECTS.map((proj) => (
@@ -53,7 +54,7 @@ function App() {
             ))}
           </div>
         </Section>
-        
+
         <Section title="Selected Publications" id="publications">
            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
              {PUBLICATIONS.map((pub) => (
@@ -82,19 +83,15 @@ function App() {
                    </div>
                  </div>
 
-                 {/* Architecture Image */}
-                 {pub.image && (
+                 {/* Architecture Image - using ImageCarousel for lightbox support */}
+                 {pub.imageUrls && pub.imageUrls.length > 0 && (
                    <div className="md:w-1/3 shrink-0">
-                     <div className="rounded-lg overflow-hidden border border-gray-100 bg-gray-50 h-full max-h-48 md:max-h-full">
-                       <img
-                         src={pub.image}
-                         alt="Model Architecture"
-                         className="w-full h-full object-contain"
-                         onError={(e) => {
-                             (e.target as HTMLImageElement).style.display = 'none';
-                         }}
-                       />
-                     </div>
+                     <ImageCarousel
+                       images={pub.imageUrls}
+                       altTitle="Publication Figure"
+                       aspectRatio="h-48 md:h-full md:max-h-48"
+                       imageClassName="object-contain bg-gray-50"
+                     />
                    </div>
                  )}
                </div>

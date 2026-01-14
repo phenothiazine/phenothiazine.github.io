@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Project } from '../types';
+import { ImageCarousel } from './ImageCarousel';
 
 interface ProjectCardProps {
   data: Project;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
-  const [imgError, setImgError] = useState<Record<number, boolean>>({});
-
-  const handleImageError = (index: number) => {
-    setImgError(prev => ({ ...prev, [index]: true }));
-  };
-
   const hasImages = data.imageUrls && data.imageUrls.length > 0;
 
   return (
@@ -19,45 +14,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ data }) => {
 
       {/* Carousel Section */}
       {hasImages && (
-        <div className="relative group/carousel">
-          <div className="w-full h-48 md:h-64 bg-gray-50 flex overflow-x-auto snap-x snap-mandatory no-scrollbar">
-            {data.imageUrls!.map((url, idx) => (
-              <div key={idx} className="w-full flex-shrink-0 snap-center h-full relative border-b border-gray-100">
-                {!imgError[idx] ? (
-                  <img
-                    src={url}
-                    alt={`${data.title} - view ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                    // Note: object-cover looks best, but use object-contain if you don't want any cropping
-                    onError={() => handleImageError(idx)}
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50 flex-col gap-2">
-                    <span className="text-4xl">🖼️</span>
-                    <span className="text-xs uppercase tracking-widest font-semibold">Missing Image</span>
-                    <span className="text-[10px] text-gray-300">Check {url}</span>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-
-          {/* Dots Indicator (only if > 1 image) */}
-          {data.imageUrls!.length > 1 && (
-             <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-2">
-               {data.imageUrls!.map((_, idx) => (
-                 <div key={idx} className="w-1.5 h-1.5 rounded-full bg-white/60 shadow-sm backdrop-blur-sm"></div>
-               ))}
-             </div>
-          )}
-
-          {/* Hint for interaction (optional) */}
-          {data.imageUrls!.length > 1 && (
-            <div className="absolute top-1/2 right-2 transform -translate-y-1/2 bg-black/20 text-white rounded-full p-1 opacity-0 group-hover/carousel:opacity-100 transition-opacity pointer-events-none md:hidden">
-               <span className="text-xs">← Swipe →</span>
-            </div>
-          )}
-        </div>
+        <ImageCarousel
+          images={data.imageUrls!}
+          altTitle={data.title}
+          aspectRatio="h-48 md:h-64"
+        />
       )}
 
       <div className="p-6 md:p-8">
