@@ -2,14 +2,14 @@ import { Experience, Project, Education, Publication, SkillCategory } from './ty
 import { Mail, Github, FileText } from 'lucide-react';
 
 export const PERSONAL_INFO = {
-  name: "Xu Jiajun",
-  chineseName: "徐嘉骏",
+  name: "徐嘉骏",
+  chineseName: "Xu Jiajun",
   title: "上海工程技术大学 · 硕士 · 男 · 中共党员",
   location: "Shanghai, China",
   email: "xujiajun2001@yeah.net",
   phone: "+86 18258456778",
   github: "https://github.com/phenothiazine",
-  summary: "即将毕业的控制科学与工程硕士，专注于计算机视觉与大模型应用。在多家科技公司积累了扎实的算法落地经验，擅长将前沿AI技术转化为实际生产力。曾获华为杯研赛国家一等奖。",
+  summary: "即将毕业的控制科学与工程硕士，专注于计算机视觉与大模型应用。在多家科技公司积累了扎实的算法落地经验，擅长将前沿AI技术转化为实际生产力。以第一作者发表 SCI 二区论文一篇，曾获华为杯研赛国家一等奖。",
   socials: [
     { name: "Email", icon: <Mail size={20} />, link: "mailto:xujiajun2001@yeah.net" },
     { name: "GitHub", icon: <Github size={20} />, link: "https://github.com/phenothiazine" },
