@@ -15,7 +15,7 @@ export interface Project {
   period: string;
   intro: string;
   highlights: string[];
-  imageUrl?: string; // Added optional image URL
+  imageUrls?: string[]; // Changed from single string to array
 }
 
 export interface Education {
@@ -31,7 +31,8 @@ export interface Publication {
   id: string;
   citation: string;
   tag: string;
-  url?: string; // Added optional DOI/Link URL
+  url?: string;
+  image?: string; // Added optional image for architecture diagram
 }
 
 export interface SkillCategory {

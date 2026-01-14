@@ -57,27 +57,46 @@ function App() {
         <Section title="Selected Publications" id="publications">
            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
              {PUBLICATIONS.map((pub) => (
-               <div key={pub.id} className="flex flex-col gap-3">
-                 <p className="text-gray-800 leading-relaxed font-serif text-lg">
-                   {pub.citation}
-                 </p>
-                 <div className="flex gap-3 items-center">
-                   <span className="self-start text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded uppercase tracking-wide">
-                     {pub.tag}
-                   </span>
-                   {pub.url && (
-                     <a 
-                      href={pub.url} 
-                      target="_blank" 
-                      rel="noopener"
-                      className="text-xs font-medium text-gray-500 hover:text-blue-600 underline underline-offset-2 flex items-center gap-1"
-                     >
-                       {pub.url.includes('doi.org')
-                         ? `DOI: ${pub.url.split('doi.org/')[1]} ↗`
-                         : 'View Paper ↗'}
-                     </a>
-                   )}
+               <div key={pub.id} className="flex flex-col md:flex-row gap-6">
+                 {/* Text Content */}
+                 <div className="flex-1 flex flex-col gap-3">
+                   <p className="text-gray-800 leading-relaxed font-serif text-lg">
+                     {pub.citation}
+                   </p>
+                   <div className="flex gap-3 items-center">
+                     <span className="self-start text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded uppercase tracking-wide">
+                       {pub.tag}
+                     </span>
+                     {pub.url && (
+                       <a
+                        href={pub.url}
+                        target="_blank"
+                        rel="noopener"
+                        className="text-xs font-medium text-gray-500 hover:text-blue-600 underline underline-offset-2 flex items-center gap-1"
+                       >
+                         {pub.url.includes('doi.org')
+                           ? `DOI: ${pub.url.split('doi.org/')[1]} ↗`
+                           : 'View Paper ↗'}
+                       </a>
+                     )}
+                   </div>
                  </div>
+
+                 {/* Architecture Image */}
+                 {pub.image && (
+                   <div className="md:w-1/3 shrink-0">
+                     <div className="rounded-lg overflow-hidden border border-gray-100 bg-gray-50 h-full max-h-48 md:max-h-full">
+                       <img
+                         src={pub.image}
+                         alt="Model Architecture"
+                         className="w-full h-full object-contain"
+                         onError={(e) => {
+                             (e.target as HTMLImageElement).style.display = 'none';
+                         }}
+                       />
+                     </div>
+                   </div>
+                 )}
                </div>
              ))}
            </div>
