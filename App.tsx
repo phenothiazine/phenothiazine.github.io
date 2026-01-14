@@ -69,10 +69,12 @@ function App() {
                      <a 
                       href={pub.url} 
                       target="_blank" 
-                      rel="noreferrer"
+                      rel="noopener"
                       className="text-xs font-medium text-gray-500 hover:text-blue-600 underline underline-offset-2 flex items-center gap-1"
                      >
-                       DOI: {pub.url.split('doi.org/')[1]} ↗
+                       {pub.url.includes('doi.org')
+                         ? `DOI: ${pub.url.split('doi.org/')[1]} ↗`
+                         : 'View Paper ↗'}
                      </a>
                    )}
                  </div>
