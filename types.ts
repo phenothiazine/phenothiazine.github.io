@@ -1,3 +1,7 @@
+import React from 'react';
+
+export type Language = 'zh' | 'en';
+
 export interface Experience {
   id: string;
   company: string;
@@ -15,7 +19,7 @@ export interface Project {
   period: string;
   intro: string;
   highlights: string[];
-  imageUrls?: string[];
+  imageUrls?: string[]; 
 }
 
 export interface Education {
@@ -32,7 +36,7 @@ export interface Publication {
   citation: string;
   tag: string;
   url?: string;
-  imageUrls?: string[]; // Changed from single image string to array
+  imageUrls?: string[];
 }
 
 export interface SkillCategory {
@@ -40,3 +44,34 @@ export interface SkillCategory {
   skills: string[];
 }
 
+export interface Social {
+  name: string;
+  icon: React.ReactNode;
+  link: string;
+}
+
+export interface ResumeData {
+  nav: {
+    education: string;
+    experience: string;
+    projects: string;
+    publications: string;
+    resumeBtn: string;
+  };
+  personalInfo: {
+    name: string;
+    secondaryName: string; // Used for the gray text next to name
+    title: string;
+    location: string;
+    email: string;
+    phone: string;
+    github: string;
+    summary: string;
+    socials: Social[];
+  };
+  experience: Experience[];
+  projects: Project[];
+  education: Education[];
+  publications: Publication[];
+  skills: SkillCategory[];
+}

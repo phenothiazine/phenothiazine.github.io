@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Section } from './components/Section';
 import { ExperienceItem } from './components/ExperienceItem';
 import { ProjectCard } from './components/ProjectCard';
 import { ImageCarousel } from './components/ImageCarousel';
-import {
-  EXPERIENCE,
-  PROJECTS,
-  EDUCATION,
-  PUBLICATIONS,
-  SKILLS
-} from './constants';
+import { ZH_DATA, EN_DATA } from './constants';
+import { Language } from './types';
 
 function App() {
+  const [lang, setLang] = useState<Language>('zh');
+
+  // Select data based on language state
+  const data = lang === 'zh' ? ZH_DATA : EN_DATA;
+
   return (
     <div className="min-h-screen bg-[#fbfbfd]">
-      <Navbar />
+      <Navbar
+        lang={lang}
+        setLang={setLang}
+        navLabels={data.nav}
+      />
 
       <main>
-        <Hero />
+        <Hero data={data.personalInfo} />
 
         {/* Education moved before Experience */}
-        <Section title="Education" id="education">
+        <Section title={data.nav.education} id="education">
           <div className="grid md:grid-cols-2 gap-6">
-            {EDUCATION.map((edu) => (
+            {data.education.map((edu) => (
               <div key={edu.id} className="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow">
                 <div className="flex justify-between items-start mb-2">
                    <h3 className="font-bold text-gray-900">{edu.school}</h3>
@@ -39,25 +43,25 @@ function App() {
           </div>
         </Section>
 
-        <Section title="Experience" id="experience">
+        <Section title={data.nav.experience} id="experience">
           <div className="pl-2">
-            {EXPERIENCE.map((exp) => (
+            {data.experience.map((exp) => (
               <ExperienceItem key={exp.id} data={exp} />
             ))}
           </div>
         </Section>
 
-        <Section title="Projects" id="projects">
+        <Section title={data.nav.projects} id="projects">
           <div className="grid gap-8">
-            {PROJECTS.map((proj) => (
+            {data.projects.map((proj) => (
               <ProjectCard key={proj.id} data={proj} />
             ))}
           </div>
         </Section>
 
-        <Section title="Selected Publications" id="publications">
+        <Section title={data.nav.publications} id="publications">
            <div className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
-             {PUBLICATIONS.map((pub) => (
+             {data.publications.map((pub) => (
                <div key={pub.id} className="flex flex-col md:flex-row gap-6">
                  {/* Text Content */}
                  <div className="flex-1 flex flex-col gap-3">
@@ -101,14 +105,14 @@ function App() {
 
         <Section title="Skills" className="pb-24">
           <div className="space-y-8">
-            {SKILLS.map((cat) => (
+            {data.skills.map((cat) => (
               <div key={cat.category}>
                 <h3 className="text-xs uppercase tracking-wider text-gray-400 font-bold mb-4">
                   {cat.category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {cat.skills.map((skill) => (
-                    <span 
+                    <span
                       key={skill}
                       className="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-gray-700 font-medium text-sm hover:border-gray-400 hover:bg-gray-50 transition-all cursor-default"
                     >
@@ -121,9 +125,9 @@ function App() {
           </div>
         </Section>
       </main>
-      
+
       <footer className="py-10 text-center text-gray-400 text-sm border-t border-gray-200 bg-white">
-        <p>© {new Date().getFullYear()} Xu Jiajun. Built with React & Tailwind.</p>
+        <p>© {new Date().getFullYear()} {data.personalInfo.name}. Built with React & Tailwind.</p>
       </footer>
     </div>
   );
