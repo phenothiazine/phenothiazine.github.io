@@ -103,7 +103,7 @@ function App() {
            </div>
         </Section>
 
-        <Section title="Skills" className="pb-24">
+        <Section title={data.nav.skills} className="pb-24">
           <div className="space-y-8">
             {data.skills.map((cat) => (
               <div key={cat.category}>

@@ -1,4 +1,4 @@
-import { ResumeData, SkillCategory } from './types';
+import { ResumeData } from './types';
 import { Mail, Github, FileText } from 'lucide-react';
 import React from 'react';
 
@@ -9,21 +9,6 @@ const SOCIAL_LINKS = [
   { name: "Resume", icon: <FileText size={20} />, link: "/resume.pdf" },
 ];
 
-const SKILLS: SkillCategory[] = [
-  {
-    category: "Languages & Tools",
-    skills: ["Python", "MATLAB", "Linux", "Docker", "Git", "C++ (Basic)", "Java (Basic)"]
-  },
-  {
-    category: "AI Frameworks",
-    skills: ["PyTorch", "LangChain", "Dify", "FastAPI", "ONNX", "TensorRT"]
-  },
-  {
-    category: "Core Competencies",
-    skills: ["Computer Vision", "LLM / RAG", "Prompt Engineering", "Image Segmentation", "CET-6 (English)"]
-  }
-];
-
 // --- CHINESE DATA ---
 export const ZH_DATA: ResumeData = {
   nav: {
@@ -31,7 +16,8 @@ export const ZH_DATA: ResumeData = {
     experience: "实习经历",
     projects: "项目经验",
     publications: "论文发表",
-    resumeBtn: "简历 PDF"
+    resumeBtn: "简历 PDF",
+    skills: "专业技能"
   },
   personalInfo: {
     name: "徐嘉骏",
@@ -126,7 +112,20 @@ export const ZH_DATA: ResumeData = {
       imageUrls: ["/images/pub1_arch.png"]
     }
   ],
-  skills: SKILLS
+  skills: [
+    {
+      category: "编程语言与工具",
+      skills: ["Python", "MATLAB", "Linux", "Docker", "Git", "C++ (基础)", "Java (基础)"]
+    },
+    {
+      category: "AI 框架与开发",
+      skills: ["PyTorch", "LangChain", "Dify", "FastAPI", "ONNX", "TensorRT"]
+    },
+    {
+      category: "核心能力",
+      skills: ["计算机视觉", "LLM / RAG", "提示词工程 (Prompt Eng.)", "图像分割", "英语六级 (CET-6)"]
+    }
+  ]
 };
 
 // --- ENGLISH DATA ---
@@ -136,12 +135,13 @@ export const EN_DATA: ResumeData = {
     experience: "Experience",
     projects: "Projects",
     publications: "Publications",
-    resumeBtn: "Resume"
+    resumeBtn: "Resume",
+    skills: "Skills"
   },
   personalInfo: {
     name: "Andy Xu",
     secondaryName: "Jiajun Xu",
-    title: "M.S. in Control Science and Engineering · Shanghai University of Engineering Science",
+    title: "M.Eng in Control Science and Engineering · Shanghai University of Engineering Science",
     location: "Shanghai, China",
     email: "xujiajun2001@yeah.net",
     phone: "+86 18258456778",
@@ -231,5 +231,18 @@ export const EN_DATA: ResumeData = {
       imageUrls: ["/images/pub1_arch.png"]
     }
   ],
-  skills: SKILLS
+  skills: [
+    {
+      category: "Languages & Tools",
+      skills: ["Python", "MATLAB", "Linux", "Docker", "Git", "C++ (Basic)", "Java (Basic)"]
+    },
+    {
+      category: "AI Frameworks",
+      skills: ["PyTorch", "LangChain", "Dify", "FastAPI", "ONNX", "TensorRT"]
+    },
+    {
+      category: "Core Competencies",
+      skills: ["Computer Vision", "LLM / RAG", "Prompt Engineering", "Image Segmentation", "CET-6 (English)"]
+    }
+  ]
 };

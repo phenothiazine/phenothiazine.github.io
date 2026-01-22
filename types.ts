@@ -57,6 +57,7 @@ export interface ResumeData {
     projects: string;
     publications: string;
     resumeBtn: string;
+    skills: string;
   };
   personalInfo: {
     name: string;
