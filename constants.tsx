@@ -27,7 +27,7 @@ export const ZH_DATA: ResumeData = {
     email: "xujiajun2001@yeah.net",
     phone: "+86 18258456778",
     github: "https://github.com/phenothiazine",
-    summary: "即将毕业的控制科学与工程硕士，专注于计算机视觉与大模型应用。在多家科技公司积累了扎实的算法落地经验，擅长将前沿AI技术转化为实际生产力。以第一作者发表 SCI 二区论文一篇，曾获华为杯研赛国家一等奖。",
+    summary: "即将毕业的控制科学与工程硕士，专注于计算机视觉与大模型应用。深刻理解 AI 应用形态正从单纯的 Prompt 交互向 'Agent + Workflow' 演进，致力于通过构建高鲁棒性的 Runtime 来解决复杂业务场景中的稳定性与上下文难题。在多家科技公司积累了扎实的算法落地经验，擅长将不确定的模型能力转化为确定性的生产力。以第一作者发表 SCI 二区论文一篇，曾获华为杯研赛国家一等奖。",
     socials: SOCIAL_LINKS
   },
   experience: [
@@ -146,7 +146,7 @@ export const EN_DATA: ResumeData = {
     email: "xujiajun2001@yeah.net",
     phone: "+86 18258456778",
     github: "https://github.com/phenothiazine",
-    summary: "Upcoming Master's graduate specializing in Computer Vision and Large Language Model applications. Possesses solid algorithm deployment experience across multiple tech companies, with a strong ability to translate cutting-edge AI technologies into production productivity. Published one SCI Q2 paper as the first author and won the National First Prize in the Huawei Cup Postgraduate Mathematics Modeling Competition.",
+    summary: "Upcoming Master's graduate specializing in Computer Vision and Large Language Model applications. Deeply recognizing the paradigm shift from simple prompts to 'Agent + Workflow' systems, I am committed to building robust Runtimes that solve stability and context challenges in complex business scenarios. Possesses solid algorithm deployment experience across multiple tech companies, excelling at transforming probabilistic AI capabilities into deterministic productivity. Published one SCI Q2 paper as the first author and won the National First Prize in the Huawei Cup Postgraduate Mathematics Modeling Competition.",
     socials: SOCIAL_LINKS
   },
   experience: [
