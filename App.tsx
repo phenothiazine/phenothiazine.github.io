@@ -5,6 +5,7 @@ import { Section } from './components/Section';
 import { ExperienceItem } from './components/ExperienceItem';
 import { ProjectCard } from './components/ProjectCard';
 import { ImageCarousel } from './components/ImageCarousel';
+import { VisitorCounter } from './components/VisitorCounter';
 import { ZH_DATA, EN_DATA } from './constants';
 import { Language } from './types';
 
@@ -128,6 +129,7 @@ function App() {
 
       <footer className="py-10 text-center text-gray-400 text-sm border-t border-gray-200 bg-white">
         <p>© {new Date().getFullYear()} {data.personalInfo.name}. Built with React & Tailwind.</p>
+        <VisitorCounter />
       </footer>
     </div>
   );
